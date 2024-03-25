@@ -1,2 +1,8 @@
-# adminhub
-Empower workflow with this intuitive admin dashboard. Manage tasks, visualize data, secure files, and stay informed with notifications. Boost productivity and streamline operations effortlessly. The ultimate solution for efficient administration
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
