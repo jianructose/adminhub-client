@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import { FiSettings } from "react-icons/fi"; // Font Awesome Icon
 
-function App() {
-  const [count, setCount] = useState(0)
+import "./App.scss";
 
+const App = () => {
   return (
-
-  )
+    <Router>
+      <div 
+    </Router>
+    )
 }
 
-export default App
+export default App;
