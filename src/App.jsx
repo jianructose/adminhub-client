@@ -1,15 +1,27 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi"; // Font Awesome Icon
+import { TooltipComponent } from "@syncfusion/ej2-react-popups"; // Syncfusion Tooltip Component
 
-import "./App.scss";
+import "./App.css";
+import "tailwindcss/tailwind.css";
 
 const App = () => {
   return (
-    <Router>
-      <div 
-    </Router>
-    )
-}
+    <div>
+      <Router>
+        <div className="flex relative dark:bg-main-dark-bg">
+          <div className="fixed right-4 bottom-4" style={{ zIndex: 1000 }}>
+            <TooltipComponent content="Settings" position="Top">
+              <button>
+                <FiSettings />
+              </button>
+            </TooltipComponent>
+          </div>
+        </div>
+      </Router>
+    </div>
+  );
+};
 
 export default App;
