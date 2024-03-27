@@ -58,6 +58,7 @@ const App = () => {
             </Routes>
           </div>
         </div>
+        <Footer />
       </Router>
     </div>
   );
