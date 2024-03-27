@@ -10,7 +10,6 @@ import {
   ViewDirective,
   Resize,
   DragAndDrop,
-  DatePickerComponent,
 } from "@syncfusion/ej2-react-schedule";
 
 const Calendar = () => {

@@ -9,7 +9,7 @@ import "./App.css";
 import "tailwindcss/tailwind.css";
 
 const App = () => {
-  const activeMenu = false;
+  const activeMenu = true;
   return (
     <div>
       <Router>
@@ -28,10 +28,12 @@ const App = () => {
           </div>
           {activeMenu ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-              Sidebar
+              <Sidebar />
             </div>
           ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">Sidebar</div>
+            <div className="w-0 dark:bg-secondary-dark-bg">
+              <Sidebar />
+            </div>
           )}
           <div
             className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
@@ -39,22 +41,21 @@ const App = () => {
             }`}
           >
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
-              Navbar
+              <Navbar />
             </div>
           </div>
           <div>
             <Routes>
               {/* dashboard */}
-              <Route path="/" element="ECommerce Dashboard" />
-              <Route path="/ecommerce" element="ECommerce Dashboard" />
+              <Route path="/" element={<Calendar />} />
+              {/* <Route path="/ecommerce" element={<ECommerce />} />
 
-              {/* pages */}
-              <Route path="/employees" element="Employees" />
+              <Route path="/employees" element={<Employees />} /> */}
 
               {/* apps */}
-              <Route path="/calendar" element="Calendar" />
-              <Route path="/kanban" element="Kanban" />
-              <Route path="/editor" element="Editor" />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/kanban" element={<Kanban />} />
+              <Route path="/editor" element={<Editor />} />
             </Routes>
           </div>
         </div>
