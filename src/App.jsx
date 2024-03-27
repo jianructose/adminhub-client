@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi"; // Font Awesome Icon
 import { TooltipComponent } from "@syncfusion/ej2-react-popups"; // Syncfusion Tooltip Component
 
+import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Calendar, Kanban, Editor } from "./pages";
 import "./App.css";
 import "tailwindcss/tailwind.css";
 
 const App = () => {
-  const activeMenu = true;
+  const activeMenu = false;
   return (
     <div>
       <Router>
@@ -31,10 +33,29 @@ const App = () => {
           ) : (
             <div className="w-0 dark:bg-secondary-dark-bg">Sidebar</div>
           )}
-          <div className={
-            activeMenu ? "dark: bg-main-bg bg-main-bg min-h-screen md:ml-72 w-full" :"dark: bg-main-bg bg-main-bg min-h-screen w-full flex-2"
-          }>
+          <div
+            className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
+              activeMenu ? "md:ml-72" : "flex-2"
+            }`}
+          >
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+              Navbar
+            </div>
+          </div>
+          <div>
+            <Routes>
+              {/* dashboard */}
+              <Route path="/" element="ECommerce Dashboard" />
+              <Route path="/ecommerce" element="ECommerce Dashboard" />
 
+              {/* pages */}
+              <Route path="/employees" element="Employees" />
+
+              {/* apps */}
+              <Route path="/calendar" element="Calendar" />
+              <Route path="/kanban" element="Kanban" />
+              <Route path="/editor" element="Editor" />
+            </Routes>
           </div>
         </div>
       </Router>
