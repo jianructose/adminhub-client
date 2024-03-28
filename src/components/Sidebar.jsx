@@ -41,6 +41,7 @@ const Sidebar = () => {
             {pages.map((page, idx) => (
               <NavLink
                 to={`/${page.name.toLowerCase()}`}
+                // isActive is a prop that is passed to the NavLink component to determine if the link is active
                 className={({ isActive }) =>
                   isActive ? activeLink : inactiveLink
                 }
