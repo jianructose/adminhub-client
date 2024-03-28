@@ -48,9 +48,10 @@ const App = () => {
             <Routes>
               {/* dashboard */}
               <Route path="/" element={<Calendar />} />
-              {/* <Route path="/ecommerce" element={<ECommerce />} />
+              <Route path="/home" element={<Calendar />} />
 
-              <Route path="/employees" element={<Employees />} /> */}
+              {/* settings */}
+              {/* <Route path="/employees" element={<Employees />} /> */}
 
               {/* apps */}
               <Route path="/calendar" element={<Calendar />} />
