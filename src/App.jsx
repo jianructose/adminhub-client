@@ -6,10 +6,11 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups"; // Syncfusion T
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import { Calendar, Kanban, Editor } from "./pages";
 import "./App.css";
-import "tailwindcss/tailwind.css";
+import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext(); // get the state from the context
+
   return (
     <div>
       <Router>
@@ -26,6 +27,8 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
+
+          {/* conditional rendering of the sidebar. if activeMenu is true, then show the sidebar */}
           {activeMenu ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
@@ -35,15 +38,21 @@ const App = () => {
               <Sidebar />
             </div>
           )}
+          {/* conditional rendering of the sidebar ends here */}
+
           <div
             className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
-              activeMenu ? "md:ml-72" : "flex-2"
+              activeMenu ? "md:ml-72" : "flex-2" // if activeMenu is true, then set the margin-left to 72 in medium screens, else set the flex to 2 (full width)
             }`}
           >
+            {/* navbar starts here */}
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
               <Navbar />
             </div>
+            {/* navbar ends here */}
           </div>
+
+          {/* main content */}
           <div>
             <Routes>
               {/* dashboard */}

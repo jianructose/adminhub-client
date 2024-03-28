@@ -4,9 +4,10 @@ import { MdOutlineCancel } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { pages } from "../data/utils";
+import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const activeMenu = true;
+  const { activeMenu, setActiveMenu } = useStateContext(); // get the state from the context
 
   const activeLink =
     "flex items-center gap-6 pl-4 pt-3 pb-2 rounded-lg text-blue-500 dark:text-blue-100 dark:hover:text-sky-500 hover:bg-light-gray text-md m-2";
@@ -22,21 +23,24 @@ const Sidebar = () => {
             <Link
               to="/"
               className="items-center gap-3 ml-3 mt-3 flex text-xl font-extrabold tracking-tighter dark:text-white text-slate-900"
-              onClick={() => {}}
+              onClick={() => setActiveMenu(false)} // close the sidebar when the link is clicked
             >
               <FaTeamspeak />
               <span>AdminHub</span>
             </Link>
+
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
-                className="md:hidden text-xl rounded-full p-3 hover:bg-light-gray mt-4 block"
+                className=" text-xl rounded-full p-3 hover:bg-light-gray mt-4 block"
                 type="button"
-                onClick={() => {}}
+                onClick={() => setActiveMenu(() => !activeMenu)} // reverse the state of the activeMenu
               >
                 <MdOutlineCancel />
               </button>
             </TooltipComponent>
           </div>
+
+          {/* map through the pages array and display the links */}
           <div className="mt-10">
             {pages.map((page, idx) => (
               <NavLink
