@@ -23,6 +23,8 @@ function ContextProvider({ children }) {
     });
   };
 
+  const [screenWidth, setScreenWidth] = useState(undefined);
+
   return (
     // this value will be passed to all the children components
     <StateContext.Provider
@@ -32,6 +34,8 @@ function ContextProvider({ children }) {
         isClicked,
         setIsClicked, // add setisclicked so that the state can be updated
         handleClick, // add the handleClick function
+        screenWidth,
+        setScreenWidth,
       }}
     >
       {/* always return the children components */}

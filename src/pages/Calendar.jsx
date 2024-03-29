@@ -13,7 +13,13 @@ import {
 } from "@syncfusion/ej2-react-schedule";
 
 const Calendar = () => {
-  return <div>Calendar</div>;
+  return (
+    <section className="mt-10">
+      <div className="flex flex-wrap justify-center lg:flex-nowrap">
+        <div className="">calendar</div>
+      </div>
+    </section>
+  );
 };
 
 export default Calendar;

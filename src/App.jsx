@@ -50,23 +50,23 @@ const App = () => {
               <Navbar />
             </div>
             {/* navbar ends here */}
-          </div>
 
-          {/* main content */}
-          <div>
-            <Routes>
-              {/* dashboard */}
-              <Route path="/" element={<Calendar />} />
-              <Route path="/home" element={<Calendar />} />
+            {/* main content */}
+            <div>
+              <Routes>
+                {/* dashboard */}
+                <Route path="/" element={<Calendar />} />
+                <Route path="/home" element={<Calendar />} />
 
-              {/* settings */}
-              {/* <Route path="/employees" element={<Employees />} /> */}
+                {/* settings */}
+                {/* <Route path="/employees" element={<Employees />} /> */}
 
-              {/* apps */}
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/editor" element={<Editor />} />
-            </Routes>
+                {/* apps */}
+                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/kanban" element={<Kanban />} />
+                <Route path="/editor" element={<Editor />} />
+              </Routes>
+            </div>
           </div>
         </div>
         <Footer />

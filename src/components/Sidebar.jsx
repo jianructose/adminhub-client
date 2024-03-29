@@ -7,7 +7,15 @@ import { pages } from "../data/utils";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Sidebar = () => {
-  const { activeMenu, setActiveMenu } = useStateContext(); // get the state from the context
+  const { activeMenu, setActiveMenu, screenWidth, setScreenWidth } =
+    useStateContext(); // get the state from the context
+
+  // close the sidebar when the screen width is less than 768px and the activeMenu is true
+  const handleCloseSidebar = () => {
+    if (screenWidth <= 1000 && activeMenu) {
+      setActiveMenu(false);
+    }
+  };
 
   const activeLink =
     "flex items-center gap-6 pl-4 pt-3 pb-2 rounded-lg text-blue-500 dark:text-blue-100 dark:hover:text-sky-500 hover:bg-light-gray text-md m-2";
@@ -16,14 +24,14 @@ const Sidebar = () => {
 
   return (
     <section className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
-      {/* if activeMenu is true, then show the sidebar */}
+      {/* if activeMenu is true, then show the sidebar, else hide it */}
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
             <Link
               to="/"
               className="items-center gap-3 ml-3 mt-3 flex text-xl font-extrabold tracking-tighter dark:text-white text-slate-900"
-              onClick={() => setActiveMenu(false)} // close the sidebar when the link is clicked
+              onClick={handleCloseSidebar} // close the sidebar when the link is clicked
             >
               <FaTeamspeak />
               <span>AdminHub</span>
@@ -33,7 +41,7 @@ const Sidebar = () => {
               <button
                 className=" text-xl rounded-full p-3 hover:bg-light-gray mt-4 block"
                 type="button"
-                onClick={() => setActiveMenu(() => !activeMenu)} // reverse the state of the activeMenu
+                onClick={() => setActiveMenu(!activeMenu)} // reverse the state of the activeMenu
               >
                 <MdOutlineCancel />
               </button>
@@ -50,7 +58,7 @@ const Sidebar = () => {
                   isActive ? activeLink : inactiveLink
                 }
                 key={idx}
-                onClick={() => {}}
+                onClick={handleCloseSidebar}
               >
                 {page.icon}
                 <span>{page.name}</span>

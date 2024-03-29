@@ -34,15 +34,47 @@ const NavButton = ({ title, func, icon, color, dotColor }) => {
 };
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } =
-    useStateContext();
+  // get the state from the context
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setIsClicked,
+    handleClick,
+    screenWidth,
+    setScreenWidth,
+  } = useStateContext();
+
+  // set the screen width when the component mounts
+  useEffect(() => {
+    // add an event listener to update the screen width when the screen is resized
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize); // call the handleResize function when the screen is resized
+
+    handleResize(); // call the handleResize function when the component mounts
+
+    return () => {
+      window.removeEventListener("resize", handleResize); // remove the event listener when the component is unmounted
+    };
+  }, []); // run the effect only once when the component mounts
+
+  useEffect(() => {
+    // close the sidebar when the screen width is less than 768px
+    if (screenWidth < 768) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenWidth]); // run the effect when the screenWidth changes
 
   return (
     <nav className="flex md:mx-6 p-2 justify-between relative">
       {/* the menu button to toggle the sidebar */}
       <NavButton
         title="Menu"
-        func={() => setActiveMenu(!activeMenu)}
+        func={() => setActiveMenu(!activeMenu)} // to set the activeMenu to the opposite of the current value
         icon={<ListIcon />}
         color="slate-900"
       />
