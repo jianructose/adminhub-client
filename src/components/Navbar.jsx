@@ -5,7 +5,9 @@ import { MdOutlineNotificationsNone as NotificationIcon } from "react-icons/md";
 
 import { TooltipComponent } from "@syncfusion/ej2-react-popups"; // tooltip component to display the tooltip effect on the icons
 import { useStateContext } from "../contexts/ContextProvider"; // import the useStateContext hook to access the state
-import { list } from "postcss";
+import Avatar, { genConfig } from "react-nice-avatar"; // import the Avatar component
+
+const config = genConfig(); // generate the configuration for the Avatar component
 
 // a component
 const NavButton = ({ title, func, icon, color, dotColor }) => {
@@ -61,7 +63,11 @@ const Navbar = () => {
           <div
             className="flex items-center gap-4 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
             onClick={() => handleClick("userProfile")}
-          ></div>
+          >
+            {" "}
+            <Avatar {...config} className="w-10 h-10" />
+            <span className="text-slate-900">John Doe</span>
+          </div>
         </TooltipComponent>
       </div>
     </nav>
