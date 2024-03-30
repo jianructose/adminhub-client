@@ -36,7 +36,7 @@ const Kanban = () => {
     },
   ];
   return (
-    <section className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <section className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-pink-50 rounded-3xl">
       <Header title="Kanban" />
       <KanbanComponent height={600} keyField="OrderID">
         <ColumnsDirective>
