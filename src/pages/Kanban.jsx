@@ -1,15 +1,15 @@
 import { Header } from "../components";
-// import {
-//   KanbanComponent,
-//   ColumnDirective,
-//   ColumnsDirective,
-// } from "@syncfusion/ej2-react-kanban";
-
 import {
+  KanbanComponent,
   ColumnDirective,
   ColumnsDirective,
-  GridComponent,
-} from "@syncfusion/ej2-react-grids";
+} from "@syncfusion/ej2-react-kanban";
+
+// import {
+//   ColumnDirective,
+//   ColumnsDirective,
+//   GridComponent,
+// } from "@syncfusion/ej2-react-grids";
 
 const Kanban = () => {
   const data = [
@@ -38,27 +38,13 @@ const Kanban = () => {
   return (
     <section className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header title="Kanban" />
-      {/* <KanbanComponent>
+      <KanbanComponent height={600} keyField="OrderID">
         <ColumnsDirective>
           <ColumnDirective headerText="To Do"></ColumnDirective>
           <ColumnDirective headerText="In Progress"></ColumnDirective>
           <ColumnDirective headerText="Done"></ColumnDirective>
         </ColumnsDirective>
-      </KanbanComponent> */}
-      <GridComponent dataSource={data}>
-        <ColumnsDirective width="100%">
-          <ColumnDirective field="OrderID" width="100" textAlign="Right" />
-          <ColumnDirective field="CustomerID" width="100" />
-          <ColumnDirective field="EmployeeID" width="100" textAlign="Right" />
-          <ColumnDirective
-            field="Freight"
-            width="100"
-            format="C2"
-            textAlign="Right"
-          />
-          <ColumnDirective field="ShipCountry" width="100" />
-        </ColumnsDirective>
-      </GridComponent>
+      </KanbanComponent>
     </section>
   );
 };

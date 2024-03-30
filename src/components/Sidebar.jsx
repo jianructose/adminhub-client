@@ -37,7 +37,7 @@ const Sidebar = () => {
               <span>AdminHub</span>
             </Link>
 
-            <TooltipComponent content="Menu" position="BottomCenter">
+            <TooltipComponent content="Close" position="BottomCenter">
               <button
                 className=" text-xl rounded-full p-3 hover:bg-light-gray mt-4 block"
                 type="button"

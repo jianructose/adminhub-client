@@ -14,6 +14,7 @@
     "@devexpress/dx-react-scheduler": "^4.0.8",
     "@devexpress/dx-react-scheduler-material-ui": "^4.0.8",
     "@syncfusion/ej2-react-grids": "^25.1.37",
+    "@syncfusion/ej2-react-kanban": "^25.1.35",
     "@syncfusion/ej2-react-popups": "^25.1.35",
     "@syncfusion/ej2-react-schedule": "^25.1.37",
     "react": "^18.2.0",
