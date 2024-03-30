@@ -30,7 +30,7 @@ const App = () => {
 
           {/* conditional rendering of the sidebar. if activeMenu is true, then show the sidebar */}
           {activeMenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+            <div className="w-56 fixed sidebar dark:bg-secondary-dark-bg bg-white">
               <Sidebar />
             </div>
           ) : (
@@ -42,7 +42,7 @@ const App = () => {
 
           <div
             className={`dark:bg-main-dark-bg bg-main-bg min-h-screen w-full ${
-              activeMenu ? "md:ml-72" : "flex-2" // if activeMenu is true, then set the margin-left to 72 in medium screens, else set the flex to 2 (full width)
+              activeMenu ? "md:ml-56" : "flex-2" // if activeMenu is true, then set the margin-left to 72 in medium screens, else set the flex to 2 (full width)
             }`}
           >
             {/* navbar starts here */}
