@@ -6,8 +6,6 @@ import {
   Month,
   Agenda,
   Inject,
-  ViewsDirective,
-  ViewDirective,
   DragAndDrop,
   Resize,
   TimelineYear,
@@ -16,8 +14,6 @@ import { registerLicense } from "@syncfusion/ej2-base";
 registerLicense(
   "Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCekxwWmFZfVpgdV9EZFZSR2Y/P1ZhSXxXdkZgWX5dcnBWRWNbWUM="
 );
-
-// import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 import Header from "../components/Header";
 
