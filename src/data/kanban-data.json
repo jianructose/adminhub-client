@@ -2,7 +2,7 @@
   {
     "Id": "Task 1",
     "Title": "Task - 29029",
-    "Status": "Review",
+    "Status": "Close",
     "Summary": "Fix the editing issues reported by the customer.",
     "Type": "Bug",
     "Priority": "Low",
@@ -30,7 +30,7 @@
   {
     "Id": "Task 3",
     "Title": "Task - 29031",
-    "Status": "ToDo",
+    "Status": "Open",
     "Summary": "Setup CI/CD pipeline for deployment automation.",
     "Type": "Task",
     "Priority": "Medium",
@@ -44,7 +44,7 @@
   {
     "Id": "Task 4",
     "Title": "Task - 29032",
-    "Status": "Done",
+    "Status": "Close",
     "Summary": "Refactor codebase for better performance.",
     "Type": "Task",
     "Priority": "Medium",
@@ -58,7 +58,7 @@
   {
     "Id": "Task 5",
     "Title": "Task - 29033",
-    "Status": "ToDo",
+    "Status": "Open",
     "Summary": "Research and implement new ML algorithm.",
     "Type": "Research",
     "Priority": "High",
@@ -72,7 +72,7 @@
   {
     "Id": "Task 6",
     "Title": "Task - 29034",
-    "Status": "Review",
+    "Status": "Testing",
     "Summary": "Fix the UI layout issues in the dashboard.",
     "Type": "Bug",
     "Priority": "Low",
@@ -86,7 +86,7 @@
   {
     "Id": "Task 7",
     "Title": "Task - 29035",
-    "Status": "ToDo",
+    "Status": "Open",
     "Summary": "Write unit tests for the backend API endpoints.",
     "Type": "Testing",
     "Priority": "Medium",
@@ -114,7 +114,7 @@
   {
     "Id": "Task 9",
     "Title": "Task - 29037",
-    "Status": "Review",
+    "Status": "Testing",
     "Summary": "Optimize database queries for faster data retrieval.",
     "Type": "Optimization",
     "Priority": "High",
@@ -128,7 +128,7 @@
   {
     "Id": "Task 10",
     "Title": "Task - 29038",
-    "Status": "ToDo",
+    "Status": "Open",
     "Summary": "Setup monitoring system for ML model performance.",
     "Type": "Task",
     "Priority": "Medium",
@@ -142,7 +142,7 @@
   {
     "Id": "Task 11",
     "Title": "Task - 29039",
-    "Status": "Done",
+    "Status": "Close",
     "Summary": "Document API endpoints and usage guidelines.",
     "Type": "Documentation",
     "Priority": "Low",
@@ -170,7 +170,7 @@
   {
     "Id": "Task 13",
     "Title": "Task - 29041",
-    "Status": "Review",
+    "Status": "Testing",
     "Summary": "Fix the performance bottleneck in backend processing.",
     "Type": "Bug",
     "Priority": "Medium",
@@ -184,7 +184,7 @@
   {
     "Id": "Task 14",
     "Title": "Task - 29042",
-    "Status": "ToDo",
+    "Status": "Open",
     "Summary": "Setup continuous integration pipeline for ML model training.",
     "Type": "Task",
     "Priority": "Low",
@@ -198,7 +198,7 @@
   {
     "Id": "Task 15",
     "Title": "Task - 29043",
-    "Status": "Done",
+    "Status": "Close",
     "Summary": "Optimize frontend code for better performance.",
     "Type": "Optimization",
     "Priority": "High",
@@ -226,7 +226,7 @@
   {
     "Id": "Task 17",
     "Title": "Task - 29045",
-    "Status": "Review",
+    "Status": "Testing",
     "Summary": "Fix the cross-browser compatibility issues in frontend.",
     "Type": "Bug",
     "Priority": "Medium",
@@ -240,7 +240,7 @@
   {
     "Id": "Task 18",
     "Title": "Task - 29046",
-    "Status": "ToDo",
+    "Status": "Open",
     "Summary": "Setup deployment pipeline for ML model serving.",
     "Type": "Task",
     "Priority": "Low",
@@ -254,7 +254,7 @@
   {
     "Id": "Task 19",
     "Title": "Task - 29047",
-    "Status": "Done",
+    "Status": "Close",
     "Summary": "Document ML model architecture and training process.",
     "Type": "Documentation",
     "Priority": "Low",
@@ -282,7 +282,7 @@
   {
     "Id": "Task 21",
     "Title": "Task - 29049",
-    "Status": "Review",
+    "Status": "Testing",
     "Summary": "Fix the memory leak issue in backend services.",
     "Type": "Bug",
     "Priority": "High",
@@ -296,7 +296,7 @@
   {
     "Id": "Task 22",
     "Title": "Task - 29050",
-    "Status": "ToDo",
+    "Status": "Open",
     "Summary": "Setup data versioning system for ML experiments.",
     "Type": "Task",
     "Priority": "Low",
@@ -310,7 +310,7 @@
   {
     "Id": "Task 23",
     "Title": "Task - 29051",
-    "Status": "Done",
+    "Status": "Close",
     "Summary": "Document ML model evaluation metrics and results.",
     "Type": "Documentation",
     "Priority": "Low",
@@ -338,7 +338,7 @@
   {
     "Id": "Task 25",
     "Title": "Task - 29053",
-    "Status": "Review",
+    "Status": "Testing",
     "Summary": "Fix the data corruption issue in ML data preprocessing.",
     "Type": "Bug",
     "Priority": "High",

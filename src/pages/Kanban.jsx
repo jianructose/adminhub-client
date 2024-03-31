@@ -1,42 +1,31 @@
 import { Header } from "../components";
 import {
   KanbanComponent,
-  ColumnDirective,
   ColumnsDirective,
+  ColumnDirective,
 } from "@syncfusion/ej2-react-kanban";
+import { kanbanGrid } from "../data/utils";
+import kanbanData from "../data/kanban-data.json";
+// console.log(kanbanData);
 
 const Kanban = () => {
-  const data = [
-    {
-      OrderID: 10248,
-      CustomerID: "VINET",
-      EmployeeID: 5,
-      ShipCountry: "France",
-      Freight: 32.38,
-    },
-    {
-      OrderID: 10249,
-      CustomerID: "TOMSP",
-      EmployeeID: 6,
-      ShipCountry: "Germany",
-      Freight: 11.61,
-    },
-    {
-      OrderID: 10250,
-      CustomerID: "HANAR",
-      EmployeeID: 4,
-      ShipCountry: "Brazil",
-      Freight: 65.83,
-    },
-  ];
   return (
     <section className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header title="Kanban" />
-      <KanbanComponent height={600} keyField="OrderID">
+      <KanbanComponent
+        id="kanban"
+        keyField="Status"
+        dataSource={kanbanData}
+        cardSettings={{
+          contentField: "Summary",
+          headerField: "Id",
+        }}
+        swimlaneSettings={{ keyField: "Assignee" }}
+      >
         <ColumnsDirective>
-          <ColumnDirective headerText="To Do"></ColumnDirective>
-          <ColumnDirective headerText="In Progress"></ColumnDirective>
-          <ColumnDirective headerText="Done"></ColumnDirective>
+          {kanbanGrid.map((col, idx) => (
+            <ColumnDirective key={idx} {...col} /> // spread the column object to pass all the properties to the ColumnDirective
+          ))}
         </ColumnsDirective>
       </KanbanComponent>
     </section>
