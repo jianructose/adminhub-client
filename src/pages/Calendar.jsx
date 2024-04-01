@@ -19,8 +19,7 @@ import axios from "axios";
 
 import Header from "../components/Header";
 
-const ApiUrl =
-  "https://turbo-space-robot-wxjpjqwqqqr3gvvw-8080.app.github.dev/api/events";
+const baseAPI = "http://localhost:8080/api/";
 // async function to fetch scheduleData
 
 import eventData from "../data/events.json";
@@ -30,7 +29,16 @@ const Calendar = () => {
   const [scheduleData, setScheduleData] = useState([]);
   const fetchScheduleData = async () => {
     try {
-      const response = await axios.get(ApiUrl);
+      const response = await axios.get(`${baseAPI}events`);
+
+      // convert time to local time
+
+      response.data.forEach((event) => {
+        event.StartTime = new Date(event.StartTime);
+        event.EndTime = new Date(event.EndTime);
+      });
+
+      console.log("fetching schedule data, scheduleData: ", response.data);
       setScheduleData(response.data);
     } catch (error) {
       console.error("Error fetching schedule data: ", error);
@@ -38,14 +46,13 @@ const Calendar = () => {
   };
   useEffect(() => {
     fetchScheduleData();
-    console.log("fetching schedule data, scheduleData: ", scheduleData);
   }, []);
   return (
     <main className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-slate-100 rounded-3xl">
       <Header title="Calendar" />
       <ScheduleComponent
         height={550}
-        eventSettings={{ dataSource: eventData }}
+        eventSettings={{ dataSource: scheduleData }}
         selectedDate={new Date()}
         currentView="Month"
       >
