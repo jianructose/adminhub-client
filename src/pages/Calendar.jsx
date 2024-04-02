@@ -82,10 +82,9 @@ const Calendar = () => {
 
     // DELETE
     else if (args.requestType === "eventRemove") {
-      console.log("request body when deleting event: ", args.data[0]);
       try {
         axios.delete("http://localhost:8080/api/events/", {
-          data: args.data[0].Id,
+          data: args.data[0],
         });
       } catch (error) {
         console.error("Error deleting event: ", error);
