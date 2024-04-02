@@ -25,53 +25,83 @@ import {
 } from "@syncfusion/ej2-data";
 
 import Header from "../components/Header";
-
-const baseAPI = "http://localhost:8080/api/";
-// async function to fetch scheduleData
+// import { getScheduleData } from "../services/scheduleService";
 
 import eventData from "../data/events.json";
 import { Button } from "../components";
+import { dataSourceChanged } from "@syncfusion/ej2-react-grids";
 
 const Calendar = () => {
   // get json data to array
-  // const [scheduleData, setScheduleData] = useState([]);
-  // const fetchScheduleData = async () => {
-  //   try {
-  //     const response = await axios.get(`${baseAPI}events`);
+  const [scheduleData, setScheduleData] = useState();
 
-  //     setScheduleData(response.data);
-  //     setTimeout(() => {
-  //       console.log("Schedule Data: ", scheduleData);
-  //     }, 3000);
-  //   } catch (error) {
-  //     console.error("Error fetching schedule data: ", error);
-  //   }
-  // };
+  // get data from the server
+  const getScheduleData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/events");
+      setScheduleData(response.data);
+    } catch (error) {
+      console.error("Error fetching schedule data: ", error);
+    }
+  };
+
   // useEffect(() => {
-  //   fetchScheduleData();
+  //   getScheduleData();
   // }, []);
 
-  const dataManager = new DataManager({
-    adaptor: new UrlAdaptor(),
-    url: `${baseAPI}events`,
-    insertUrl: `${baseAPI}events/insert`,
-    removeUrl: `${baseAPI}events/delete`,
-    updateUrl: `${baseAPI}events/update`,
-    crossDomain: true, // enable this if you are using CORS
-  });
+  const dataSourceChanged = (state) => {
+    console.log("dataSourceChanged", state);
+  };
+
+  // add new event
+
+  // update event
+
+  // delete event
 
   const scheduleObj = useRef(null); // create a ref for the ScheduleComponent
+  const onBound = () => {
+    // get data from the server
+    getScheduleData();
+  };
+
+  const onBegin = (args) => {
+    console.log("onBegin", args);
+    if (args.requestType === "eventCreate") {
+      try {
+        axios.post("http://localhost:8080/api/events", args.data[0]);
+
+        // const schObj = document.querySelector(".e-schedule").ej2_instances[0];
+        // schObj.eventSettings.dataSource = response.data;
+      } catch (error) {
+        console.error("Error adding event: ", error);
+      }
+    } else if (args.requestType === "eventChange") {
+      console.log("request body when updating event: ", args.data.Id);
+      try {
+        axios.put(
+          `http://localhost:8080/api/events/${args.data.Id}`,
+          args.data[0]
+        );
+      } catch (error) {
+        console.error("Error updating event: ", error);
+      }
+    } else if (args.requestType === "eventRemove") {
+    }
+  };
 
   return (
     <main className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-slate-100 rounded-3xl">
       <Header title="Calendar" />
       <ScheduleComponent
         height={550}
-        eventSettings={{ dataSource: dataManager }}
+        eventSettings={{ dataSource: scheduleData }}
         selectedDate={new Date()}
         currentView="Month"
         timezone="America/Los_Angeles"
         ref={scheduleObj}
+        dataBound={onBound}
+        actionBegin={onBegin}
       >
         <Inject
           services={[
