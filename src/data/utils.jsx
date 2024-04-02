@@ -1,4 +1,4 @@
-import { FaHome, FaCalendar, FaTrello, FaEdit, FaTable } from "react-icons/fa";
+import { FaHome, FaCalendar, FaTrello, FaClock } from "react-icons/fa";
 
 const pages = [
   {
@@ -14,8 +14,8 @@ const pages = [
     icon: <FaTrello />,
   },
   {
-    name: "Editor",
-    icon: <FaEdit />,
+    name: "Pomodoro",
+    icon: <FaClock />,
   },
 ];
 

@@ -10,7 +10,7 @@ import kanbanData from "../data/kanban-data.json";
 
 const Kanban = () => {
   return (
-    <section className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
+    <section className="m-2 md:m-10 mt-24 p-4 md:p-10 bg-violet-100 rounded-3xl">
       <Header title="Kanban" />
       <KanbanComponent
         id="kanban"

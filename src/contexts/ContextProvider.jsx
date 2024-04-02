@@ -16,6 +16,7 @@ function ContextProvider({ children }) {
 
   const [isClicked, setIsClicked] = useState(initialState);
 
+  // create a function to handle the click event to update the state
   const handleClick = (clicked) => {
     setIsClicked({
       ...initialState,

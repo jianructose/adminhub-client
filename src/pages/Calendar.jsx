@@ -93,7 +93,7 @@ const Calendar = () => {
   };
 
   return (
-    <main className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-slate-100 rounded-3xl">
+    <main className="m-2 md:m-10 mt-24 p-4 md:p-10 bg-slate-100 rounded-3xl">
       <Header title="Calendar" />
       <ScheduleComponent
         height={550}
