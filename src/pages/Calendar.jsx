@@ -45,13 +45,9 @@ const Calendar = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getScheduleData();
-  // }, []);
-
-  const dataSourceChanged = (state) => {
-    console.log("dataSourceChanged", state);
-  };
+  useEffect(() => {
+    getScheduleData();
+  }, []);
 
   // add new event
 
@@ -62,31 +58,38 @@ const Calendar = () => {
   const scheduleObj = useRef(null); // create a ref for the ScheduleComponent
   const onBound = () => {
     // get data from the server
-    getScheduleData();
+    // getScheduleData();
   };
 
   const onBegin = (args) => {
-    console.log("onBegin", args);
+    // CREATE
     if (args.requestType === "eventCreate") {
       try {
         axios.post("http://localhost:8080/api/events", args.data[0]);
-
-        // const schObj = document.querySelector(".e-schedule").ej2_instances[0];
-        // schObj.eventSettings.dataSource = response.data;
       } catch (error) {
         console.error("Error adding event: ", error);
       }
-    } else if (args.requestType === "eventChange") {
-      console.log("request body when updating event: ", args.data.Id);
+    }
+
+    // UPDATE
+    else if (args.requestType === "eventChange") {
       try {
-        axios.put(
-          `http://localhost:8080/api/events/${args.data.Id}`,
-          args.data[0]
-        );
+        axios.put("http://localhost:8080/api/events", args.data);
       } catch (error) {
         console.error("Error updating event: ", error);
       }
-    } else if (args.requestType === "eventRemove") {
+    }
+
+    // DELETE
+    else if (args.requestType === "eventRemove") {
+      console.log("request body when deleting event: ", args.data[0]);
+      try {
+        axios.delete("http://localhost:8080/api/events/", {
+          data: args.data[0].Id,
+        });
+      } catch (error) {
+        console.error("Error deleting event: ", error);
+      }
     }
   };
 
