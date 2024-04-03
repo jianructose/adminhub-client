@@ -12,7 +12,8 @@ import {
 } from "@syncfusion/ej2-react-schedule";
 import { registerLicense } from "@syncfusion/ej2-base";
 registerLicense(
-  "Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCekxwWmFZfVpgdV9EZFZSR2Y/P1ZhSXxXdkZgWX5dcnBWRWNbWUM="
+  // "Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCekxwWmFZfVpgdV9EZFZSR2Y/P1ZhSXxXdkZgWX5dcnBWRWNbWUM="
+  "Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtec3VWRGFfVEFzX0o="
 );
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";

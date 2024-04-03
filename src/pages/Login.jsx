@@ -1,5 +1,6 @@
-import COVER_IMAGE from "../assets/images/mountain-cover.jpg";
+// import COVER_IMAGE from "../assets/images/mountain-cover.jpg";
 import { useStateContext } from "../contexts/ContextProvider";
+import { Link } from "react-router-dom";
 
 const colors = {
   primary: "#060606", // black
@@ -9,27 +10,86 @@ const colors = {
 
 const Login = () => {
   const { isLogged, setIsLogged } = useStateContext(); // get the state from the context
+
+  const handleLogin = () => {
+    setIsLogged(true);
+  };
   return (
-    <main className="w-full h-full flex items-start">
-      <div className="w-full h-full flex flex-row">
-        <div className="absolute top-[20%] left-[10%] flex flex-col w-1/2">
-          <h1 className="text-4xl text-slate-500 font-extrabold my-4">
+    <main className="max-w-[1920px] mx-auto bg-white overflow-hidden">
+      <section className="hero  bg-hero bg-center bg-cover bg-no-repeat xl:rounded-bl-[300px] z-20 relative md:flex gap-1 md:flex-row">
+        <div className=" p-10 mb-4 md:w-1/2 flex flex-col items-start justify-center h-1/2 md:h-full">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 py-4">
             Empower Your Team's Efficiency{" "}
           </h1>
-          <p className="text-xl text-slate-600 font-semibold">
+          <p className="text-lg md:text-2xl text-slate-700 font-semibold">
             Start for free and revolutionize your team's productivity
             effortlessly
           </p>
         </div>
-        <img
-          src={COVER_IMAGE}
-          alt="cover"
-          className="w-full h-full object-left object-cover"
-        />
-        <div className="w-full h-full bg-[#e0e0e0] flex flex-col">
-          <hi className="text-4xl text-slate-500 font-extrabold my-4">Login</hi>
+
+        <div className="backdrop-blur-md  md:w-1/2 h-1/2 md:h-full p-10 flex flex-col justify-between">
+          <h1>AdminHub</h1>
+
+          <form className="w-full flex flex-col gap-4">
+            <div className="w-full flex flex-col mb-6">
+              <h3 className="text-2xl font-semibold mb-5">Login</h3>
+              <p className="mb-3 text-base">
+                Welcome Back! Please enter your details.
+              </p>
+            </div>
+
+            <div className="w-full flex flex-col gap-4">
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full py-5 my-2 border-b placeholder-slate-900 bg-transparent border-black outline-none focus:outline-none"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full py-5 my-2 border-b placeholder-slate-900 bg-transparent border-black outline-none focus:outline-none"
+              />
+            </div>
+
+            <div className="w-full flex items-center justify-between">
+              <div className="w-full flex items-center">
+                <input type="checkbox" className="mr-2 w-4 h-4" />
+                <p className="text-sm">Remember me</p>
+              </div>
+              <p className="text-sm font-medium cursor-pointer hover:underline hover:underline-offset-4 whitespace-nowrap">
+                Forgot Password?
+              </p>
+            </div>
+
+            <div className="w-full flex flex-col my-4">
+              <Link
+                className="bg-black text-white my-2 font-semibold p-4 rounded-lg flex items-center justify-center hover:bg-opacity-60"
+                to="/"
+                onClick={handleLogin}
+              >
+                Log in
+              </Link>
+              <button className="bg-white text-black my-2 font-semibold border border-black p-4 rounded-lg flex items-center justify-center hover:bg-opacity-60">
+                Register
+              </button>
+            </div>
+
+            <div className="w-full flex items-center justify-center relative py-2">
+              <div className="w-full h-[1px] bg-black"></div>
+              <p className="text-base absolute p-3 ">or</p>
+            </div>
+          </form>
+
+          <div className="w-full text-white flex items-center justify-center">
+            <p className="text-sm font-normal">
+              Don't have an account?{" "}
+              <span className="font-semibold underline underline-offset-5">
+                Sign up for free
+              </span>
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 };
