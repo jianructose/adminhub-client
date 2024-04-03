@@ -26,6 +26,8 @@ function ContextProvider({ children }) {
 
   const [screenWidth, setScreenWidth] = useState(undefined);
 
+  const [isLogged, setIsLogged] = useState(false);
+
   return (
     // this value will be passed to all the children components
     <StateContext.Provider
@@ -37,6 +39,8 @@ function ContextProvider({ children }) {
         handleClick, // add the handleClick function
         screenWidth,
         setScreenWidth,
+        isLogged,
+        setIsLogged,
       }}
     >
       {/* always return the children components */}

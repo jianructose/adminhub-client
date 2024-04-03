@@ -12,7 +12,7 @@ const Sidebar = () => {
 
   // close the sidebar when the screen width is less than 768px and the activeMenu is true
   const handleCloseSidebar = () => {
-    if (screenWidth <= 1000 && activeMenu) {
+    if (screenWidth <= 900 && activeMenu) {
       setActiveMenu(false);
     }
   };
