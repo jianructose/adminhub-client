@@ -14,6 +14,7 @@ const Kanban = () => {
       <Header title="Kanban" />
       <KanbanComponent
         id="kanban"
+        height={500}
         keyField="Status"
         dataSource={kanbanData}
         cardSettings={{

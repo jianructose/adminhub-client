@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaTeamspeak } from "react-icons/fa";
-import { MdOutlineCancel } from "react-icons/md";
+import { MdClose } from "react-icons/md";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { pages } from "../data/utils";
@@ -43,7 +43,7 @@ const Sidebar = () => {
                 type="button"
                 onClick={() => setActiveMenu(!activeMenu)} // reverse the state of the activeMenu
               >
-                <MdOutlineCancel />
+                <MdClose />
               </button>
             </TooltipComponent>
           </div>
