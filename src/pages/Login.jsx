@@ -1,6 +1,7 @@
 // import COVER_IMAGE from "../assets/images/mountain-cover.jpg";
 import { useStateContext } from "../contexts/ContextProvider";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const colors = {
   primary: "#060606", // black
@@ -15,25 +16,25 @@ const Login = () => {
     setIsLogged(true);
   };
   return (
-    <main className="max-w-[1920px] mx-auto bg-white overflow-hidden">
-      <section className="hero  bg-hero bg-center bg-cover bg-no-repeat xl:rounded-bl-[300px] z-20 relative md:flex gap-1 md:flex-row">
-        <div className=" p-10 mb-4 md:w-1/2 flex flex-col items-start justify-center h-1/2 md:h-full">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 py-4">
+    <main className="  bg-white overflow-hidden">
+      <section className="hero bg-hero bg-center bg-cover bg-no-repeat md:rounded-bl-[300px] z-20 relative md:flex gap-1 md:flex-row">
+        <div className=" p-10 my-10 md:w-1/2 flex flex-col items-start justify-center h-1/2 md:h-full">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 py-4 mb-5">
             Empower Your Team's Efficiency{" "}
           </h1>
-          <p className="text-lg md:text-2xl text-slate-700 font-semibold">
+          <h4 className="text-lg md:text-2xl text-slate-700 font-semibold">
             Start for free and revolutionize your team's productivity
             effortlessly
-          </p>
+          </h4>
         </div>
 
         <div className="backdrop-blur-md  md:w-1/2 h-1/2 md:h-full p-10 flex flex-col justify-between">
-          <h1>AdminHub</h1>
+          {/* <h1>AdminHub</h1> */}
 
           <form className="w-full flex flex-col gap-4">
-            <div className="w-full flex flex-col mb-6">
-              <h3 className="text-2xl font-semibold mb-5">Login</h3>
-              <p className="mb-3 text-base">
+            <div className="w-full flex flex-col">
+              <h3 className="text-2xl font-semibold mb-5">AdminHub</h3>
+              <p className=" text-base">
                 Welcome Back! Please enter your details.
               </p>
             </div>
@@ -61,23 +62,28 @@ const Login = () => {
               </p>
             </div>
 
-            <div className="w-full flex flex-col my-4">
+            <div className="w-full flex flex-col">
               <Link
-                className="bg-black text-white my-2 font-semibold p-4 rounded-lg flex items-center justify-center hover:bg-opacity-60"
+                className="bg-black text-white my-2 font-semibold py-2.5 px-5 rounded-lg flex items-center justify-center hover:bg-opacity-60"
                 to="/"
                 onClick={handleLogin}
               >
                 Log in
               </Link>
-              <button className="bg-white text-black my-2 font-semibold border border-black p-4 rounded-lg flex items-center justify-center hover:bg-opacity-60">
+              <button className="bg-white text-black my-2 font-semibold border border-black py-2.5 px-5 rounded-lg flex items-center justify-center hover:bg-opacity-60">
                 Register
               </button>
             </div>
 
             <div className="w-full flex items-center justify-center relative py-2">
               <div className="w-full h-[1px] bg-black"></div>
-              <p className="text-base absolute p-3 ">or</p>
+              <p className="text-lg absolute p-3 ">or</p>
             </div>
+
+            <button className="bg-white text-black/50 my-2 font-semibold border border-black py-2.5 px-4 rounded-lg flex items-center justify-center hover:bg-opacity-60">
+              <FcGoogle className="mr-2 h-6 w-6" />
+              Sign In With Google
+            </button>
           </form>
 
           <div className="w-full text-white flex items-center justify-center">
