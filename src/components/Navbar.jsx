@@ -103,7 +103,7 @@ const Navbar = () => {
             {" "}
             <Avatar {...config} className="w-8 h-8" />
             <p className="text-slate-400 text-14">
-              <span>Hi,</span> <span>Ashley</span>
+              <span>Hi,</span> <span>Olyvia Jianru</span>
             </p>
             <ArrowDownIcon className="text-xl text-slate-900" />
           </div>

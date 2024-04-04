@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi"; // Font Awesome Icon
 import { TooltipComponent } from "@syncfusion/ej2-react-popups"; // Syncfusion Tooltip Component
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Footer, Sidebar, ThemeSettings, Contact } from "./components";
 import { Calendar, Kanban, Pomodoro, Login } from "./pages";
 import "./App.css";
 import { useStateContext } from "./contexts/ContextProvider";
@@ -57,6 +57,7 @@ const App = () => {
                   <Route path="/kanban" element={<Kanban />} />
                   <Route path="/pomodoro" element={<Pomodoro />} />
                   <Route path="*" element={<h1>Not Found</h1>} />
+                  <Route path="/contact" element={<Contact />} />
                 </Routes>
               </div>
             </div>

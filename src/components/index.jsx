@@ -1,5 +1,5 @@
 export { default as Button } from "./Button";
-export { default as Cart } from "./Cart";
+export { default as Contact } from "./Contact";
 export { default as Chat } from "./Chat";
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
