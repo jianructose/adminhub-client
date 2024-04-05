@@ -97,7 +97,7 @@ const Calendar = () => {
     <main className="m-2 md:m-10 mt-24 p-4 md:p-10 bg-slate-100 rounded-3xl">
       <Header title="Calendar" />
       <ScheduleComponent
-        height={500}
+        height="md:h-[500px]"
         eventSettings={{ dataSource: scheduleData }}
         selectedDate={new Date()}
         currentView="Month"

@@ -3,6 +3,8 @@ import { FaList as ListIcon } from "react-icons/fa6"; // list icon to display th
 import { BsFillChatHeartFill as ChatIcon } from "react-icons/bs"; // chat icon to display the chat
 import { MdOutlineNotificationsNone as NotificationIcon } from "react-icons/md"; // notification icon to display the notifications
 import { IoIosArrowDown as ArrowDownIcon } from "react-icons/io";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import { IconContext } from "react-icons";
 
 import { TooltipComponent } from "@syncfusion/ej2-react-popups"; // tooltip component to display the tooltip effect on the icons
 import { useStateContext } from "../contexts/ContextProvider"; // import the useStateContext hook to access the state
@@ -27,7 +29,16 @@ const NavButton = ({ title, func, icon, color, dotColor }) => {
           style={{ background: dotColor }}
           className="absolute inline-flex h-2 w-2 top-2 right-2 rounded-full" // set the position of the dot to the top right
         />
-        {icon}
+        {
+          <IconContext.Provider
+            value={{
+              className:
+                "dark:text-white p-1 w-7 h-7 rounded-1 dark:bg-black bg-opacity-80",
+            }}
+          >
+            {icon}
+          </IconContext.Provider>
+        }
       </button>
     </TooltipComponent>
   );
@@ -70,51 +81,59 @@ const Navbar = () => {
   }, [screenWidth]); // run the effect when the screenWidth changes
 
   return (
-    <nav className="flex md:mx-6 p-2 justify-between relative">
-      {/* the menu button to toggle the sidebar */}
-      <NavButton
-        title="Menu"
-        func={() => setActiveMenu(!activeMenu)} // to set the activeMenu to the opposite of the current value
-        icon={<ListIcon />}
-        color="slate-900"
-      />
-
-      {/* for all other icons button */}
-      <div className="flex gap-4">
+    <div className="">
+      <nav className="flex md:mx-6 p-2 justify-between relative dark:bg-secondary-dark-bg bg-white">
+        {/* the menu button to toggle the sidebar */}
         <NavButton
-          title="Chat"
-          func={() => handleClick("chat")}
-          icon={<ChatIcon />}
+          title="Menu"
+          func={() => setActiveMenu(!activeMenu)} // to set the activeMenu to the opposite of the current value
+          icon={<ListIcon />}
           color="slate-900"
-          // dotColor="blue"
         />
-        <NavButton
-          title="Notification"
-          func={() => handleClick("notification")}
-          icon={<NotificationIcon />}
-          color="slate-900"
-          // dotColor="blue"
-        />
-        <TooltipComponent content="Profile" position="BottomCenter">
-          <div
-            className="flex items-center gap-4 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick("userProfile")}
-          >
-            {" "}
-            <Avatar {...config} className="w-8 h-8" />
-            <p className="text-slate-400 text-14">
-              <span>Hi,</span> <span>Olyvia Jianru</span>
-            </p>
-            <ArrowDownIcon className="text-xl text-slate-900" />
-          </div>
-        </TooltipComponent>
 
-        {/* the function to handle the click event */}
-        {isClicked.chat && <Chat />}
-        {isClicked.notification && <Notification />}
-        {isClicked.userProfile && <UserProfile />}
-      </div>
-    </nav>
+        {/* for all other icons button */}
+        <div className="flex gap-4">
+          <NavButton
+            title="Dark"
+            func={() => handleClick("darkMode")}
+            icon={<BsFillMoonStarsFill />}
+            color="slate-900"
+          />
+
+          <NavButton
+            title="Chat"
+            func={() => handleClick("chat")}
+            icon={<ChatIcon />}
+            color="slate-900"
+            // dotColor="blue"
+          />
+          <NavButton
+            title="Notification"
+            func={() => handleClick("notification")}
+            icon={<NotificationIcon />}
+            color="slate-900"
+            // dotColor="blue"
+          />
+          <TooltipComponent content="Profile" position="BottomCenter">
+            <div
+              className="flex items-center gap-4 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+              onClick={() => handleClick("userProfile")}
+            >
+              <Avatar {...config} className="w-8 h-8" />
+              <p className="text-slate-400 text-14">
+                <span>Hi,</span> <span>Olyvia Jianru</span>
+              </p>
+              <ArrowDownIcon className="text-xl text-slate-900" />
+            </div>
+          </TooltipComponent>
+
+          {/* the function to handle the click event */}
+          {isClicked.chat && <Chat />}
+          {isClicked.notification && <Notification />}
+          {isClicked.userProfile && <UserProfile />}
+        </div>
+      </nav>
+    </div>
   );
 };
 

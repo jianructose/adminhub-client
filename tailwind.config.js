@@ -1,6 +1,6 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"], // files to scan for classes
-  darkMode: "class",
+  darkMode: "class", // enable dark mode based on the class attribute
   theme: {
     fontFamily: {
       display: ["Open Sans", "sans-serif"],

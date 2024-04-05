@@ -18,7 +18,7 @@ const Login = () => {
   return (
     <main className="  bg-white overflow-hidden">
       <section className="hero bg-hero bg-center bg-cover bg-no-repeat md:rounded-bl-[300px] z-20 relative md:flex gap-1 md:flex-row">
-        <div className=" p-10 my-10 md:w-1/2 flex flex-col items-start justify-center h-1/2 md:h-full">
+        <div className=" p-10 mb-10 md:w-1/2 flex flex-col items-start justify-center h-1/2 md:h-full">
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 py-4 mb-5">
             Empower Your Team's Efficiency{" "}
           </h1>

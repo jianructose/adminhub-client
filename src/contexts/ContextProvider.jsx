@@ -8,6 +8,7 @@ const initialState = {
   chat: false,
   userProfile: false,
   notification: false,
+  darkMode: false,
 };
 
 function ContextProvider({ children }) {

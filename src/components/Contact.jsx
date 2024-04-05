@@ -27,34 +27,36 @@ const Contact = () => {
           </li>
         </ul>
 
-        <div className="text-2xl font-bold text-center dark:text-white dark:bg-main-dark-bg flex flex-col items-center justify-center">
+        <div className="text-3xl font-bold text-center dark:text-white dark:bg-main-dark-bg flex flex-col items-center justify-center">
           <TypeAnimation
             cursor={true}
             sequence={[
-              "I build data pipelines.",
+              "I build data pipelines",
               100,
 
-              "I develop React applications.",
+              "I develop React applications",
               100,
-              "I visualize data insights.",
+              "I visualize data insights",
               50,
-              "I lead cross-functional teams.",
+              "I lead cross-functional teams",
               50,
-              "I am a full-stack developer.",
+              "I am a full-stack developer",
               50,
               "I am UBC Alum",
               300,
-              "I am a lifelong learner.",
+              "I am a lifelong learner",
               50,
-              "I am a data scientist.",
+              "I am a data scientist",
               50,
-              "I am a data engineer.",
+              "I am a data engineer",
               100,
-              "I code in JavaScript.",
+              "I code in JavaScript",
               100,
-              "I create Node.js APIs.",
+              "I create Node.js APIs",
               100,
-              "I build ML models.",
+              "I build ML models",
+              100,
+              "I am happy to connect!",
             ]}
             wrapper="div"
             repeat={Infinity} // repeat the sequence indefinitely
