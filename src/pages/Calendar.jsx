@@ -37,24 +37,19 @@ const Calendar = () => {
   const [scheduleData, setScheduleData] = useState();
 
   // get data from the server
-  const getScheduleData = async () => {
+  const getScheduleData = () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/events");
-      setScheduleData(response.data);
+      // set data from the local json file
+      setScheduleData(eventData);
     } catch (error) {
       console.error("Error fetching schedule data: ", error);
     }
   };
 
+  // useeffect to get data once the component is mounted
   useEffect(() => {
     getScheduleData();
   }, []);
-
-  // add new event
-
-  // update event
-
-  // delete event
 
   const scheduleObj = useRef(null); // create a ref for the ScheduleComponent
   const onBound = () => {
@@ -66,7 +61,8 @@ const Calendar = () => {
     // CREATE
     if (args.requestType === "eventCreate") {
       try {
-        axios.post("http://localhost:8080/api/events", args.data[0]);
+        // add the args.data to the json file
+        setScheduleData([...scheduleData, args.data[0]]);
       } catch (error) {
         console.error("Error adding event: ", error);
       }
@@ -75,7 +71,13 @@ const Calendar = () => {
     // UPDATE
     else if (args.requestType === "eventChange") {
       try {
-        axios.put("http://localhost:8080/api/events", args.data);
+        // update the json file with the new args.data
+        setScheduleData(
+          scheduleData.map((event) =>
+            event.Id === args.data.Id ? { ...event, ...args.data } : event
+          )
+        );
+        // axios.put("http://localhost:8080/api/events", args.data);
       } catch (error) {
         console.error("Error updating event: ", error);
       }
@@ -84,9 +86,13 @@ const Calendar = () => {
     // DELETE
     else if (args.requestType === "eventRemove") {
       try {
-        axios.delete("http://localhost:8080/api/events/", {
-          data: args.data[0],
-        });
+        // remove the event from the json file
+        setScheduleData(
+          scheduleData.filter((event) => event.Id !== args.data[0].Id)
+        );
+        // axios.delete("http://localhost:8080/api/events/", {
+        // data: args.data[0],
+        // });
       } catch (error) {
         console.error("Error deleting event: ", error);
       }
